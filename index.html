@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monglish_Grade6_Grammar_Worksheet</title>
+    <style>
+        :root {
+            --ink: #22303c;
+            --main: #123a5e;
+            --soft: #dceaf5;
+            --wash: #edf1f5;
+            --border: #b0c4de;
+            --accent: #2c7da0;
+            --success: #2a9d8f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--wash);
+            color: var(--ink);
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .bar {
+            background-color: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 20px;
+            width: 100%;
+            max-width: 850px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .bar-title {
+            font-weight: 700;
+            color: var(--main);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: var(--main);
+            color: #ffffff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: var(--main);
+            border: 1px solid var(--main);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--soft);
+        }
+
+        .hint {
+            width: 100%;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 4px;
+            border-top: 1px dashed var(--border);
+            padding-top: 6px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            width: 100%;
+            max-width: 850px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .card[contenteditable="true"] {
+            outline: 2px dashed var(--accent);
+            outline-offset: 4px;
+        }
+
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            border: 2px solid var(--main);
+        }
+
+        .header-table colgroup col:nth-child(1) { width: 65%; }
+        .header-table colgroup col:nth-child(2) { width: 35%; }
+
+        .header-table td, .header-table th {
+            border: 1px solid var(--main);
+            padding: 10px 14px;
+            vertical-align: middle;
+        }
+
+        .school-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .doc-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-top: 4px;
+        }
+
+        .info-grid {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+
+        .info-grid colgroup col:nth-child(1) { width: 15%; }
+        .info-grid colgroup col:nth-child(2) { width: 45%; }
+        .info-grid colgroup col:nth-child(3) { width: 15%; }
+        .info-grid colgroup col:nth-child(4) { width: 25%; }
+
+        .info-grid td {
+            border: 1px solid var(--border);
+            padding: 8px 10px;
+            font-size: 0.9rem;
+        }
+
+        .info-label {
+            font-weight: 700;
+            background-color: var(--soft);
+            color: var(--main);
+        }
+
+        .mark-box {
+            background-color: var(--soft);
+            text-align: center;
+        }
+
+        .mark-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--main);
+            text-transform: uppercase;
+        }
+
+        .mark-score {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--main);
+        }
+
+        .section-block {
+            margin-bottom: 28px;
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            background-color: var(--main);
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 4px 4px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .section-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-body {
+            border: 1px solid var(--border);
+            border-top: none;
+            padding: 18px;
+            border-radius: 0 0 4px 4px;
+            background-color: #ffffff;
+        }
+
+        .instructions {
+            font-style: italic;
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px dashed var(--soft);
+        }
+
+        .q-list {
+            list-style: none;
+            counter-reset: q-counter;
+        }
+
+        .q-item {
+            counter-increment: q-counter;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .q-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .q-text {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .q-text::before {
+            content: counter(q-counter) ". ";
+            color: var(--main);
+            font-weight: 800;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin-top: 8px;
+            margin-left: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+        }
+
+        .option-letter {
+            font-weight: 700;
+            color: var(--main);
+            background-color: var(--wash);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+        }
+
+        .fill-line {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 1.5px dashed var(--main);
+            margin: 0 4px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .answer-space {
+            margin-top: 8px;
+            margin-left: 20px;
+        }
+
+        .line-input {
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+            min-height: 28px;
+            margin-top: 4px;
+        }
+
+        #key {
+            display: none;
+            margin-top: 30px;
+            border: 2px solid var(--success);
+            border-radius: 6px;
+            background-color: #f4fbf9;
+            padding: 20px;
+            page-break-before: always;
+        }
+
+        #key h2 {
+            color: var(--success);
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+            border-bottom: 2px solid var(--success);
+            padding-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .key-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .key-section {
+            background: #ffffff;
+            padding: 10px 14px;
+            border-radius: 4px;
+            border: 1px solid #d0ebd8;
+        }
+
+        .key-section h3 {
+            font-size: 0.9rem;
+            color: var(--main);
+            margin-bottom: 6px;
+        }
+
+        .key-list {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            padding-left: 16px;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+
+            .bar {
+                display: none !important;
+            }
+
+            .card {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .card[contenteditable="true"] {
+                outline: none;
+            }
+
+            #key {
+                display: none !important; /* Answer key stays hidden on student print */
+            }
+
+            tr {
+                break-inside: avoid;
+            }
+
+            .section-block {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bar">
+        <div class="bar-title">
+            <span>📝</span> Grade 6 Grammar Assessment Architect
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-secondary" onclick="toggleEdit()">✏️ Enable Editing</button>
+            <button class="btn btn-secondary" onclick="toggleKey()">👁️ Toggle Answer Key</button>
+            <button class="btn" onclick="window.print()">⬇️ Save / Print PDF</button>
+        </div>
+        <div class="hint">
+            💡 <strong>Teacher Note:</strong> Click "Enable Editing" to adapt questions directly on the page. Clicking "Save / Print PDF" uses standard browser print (`window.print()`) for vector text quality.
+        </div>
+    </div>
+
+    <div class="card" id="worksheetCard">
+        
+        <!-- Header Information -->
+        <table class="header-table">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tr>
+                <td>
+                    <div class="school-name">Learning International Schools</div>
+                    <div class="doc-title">English Language Department · Grade 6 Grammar Worksheet</div>
+                </td>
+                <td class="mark-box">
+                    <div class="mark-title">Total Mark</div>
+                    <div class="mark-score">20 / 20</div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="info-grid">
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tr>
+                <td class="info-label">Student Name:</td>
+                <td></td>
+                <td class="info-label">Date:</td>
+                <td>____ / ____ / 2026</td>
+            </tr>
+            <tr>
+                <td class="info-label">Class / Section:</td>
+                <td>Grade 6 / _____</td>
+                <td class="info-label">Time Allowed:</td>
+                <td>30 Minutes</td>
+            </tr>
+        </table>
+
+        <!-- SECTION A -->
+        <div class="section-block">
+            <div class="section-header">
+                <span>SECTION A: Multiple Choice Questions</span>
+                <div class="section-meta">
+                    <span class="badge">Support · DOK 1</span>
+                    <span>[ 5 Marks ]</span>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="instructions">Choose the correct option (A, B, C, or D) to complete each sentence.</div>
+                <ol class="q-list">
+                    <li class="q-item">
+                        <div class="q-text">She <span class="fill-line"></span> to London twice this year.</div>
+                        <div class="options-grid">
+                            <div class="option-item"><span class="option-letter">A</span> went</div>
+                            <div class="option-item"><span class="option-letter">B</span> has been</div>
+                            <div class="option-item"><span class="option-letter">C</span> goes</div>
+                            <div class="option-item"><span class="option-letter">D</span> was going</div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">Mount Everest is the <span class="fill-line"></span> mountain in the world.</div>
+                        <div class="options-grid">
+                            <div class="option-item"><span class="option-letter">A</span> high</div>
+                            <div class="option-item"><span class="option-letter">B</span> higher</div>
+                            <div class="option-item"><span class="option-letter">C</span> highest</div>
+                            <div class="option-item"><span class="option-letter">D</span> more high</div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">You <span class="fill-line"></span> wear a helmet when riding a bicycle; it is the safety rule.</div>
+                        <div class="options-grid">
+                            <div class="option-item"><span class="option-letter">A</span> must</div>
+                            <div class="option-item"><span class="option-letter">B</span> might</div>
+                            <div class="option-item"><span class="option-letter">C</span> could</div>
+                            <div class="option-item"><span class="option-letter">D</span> would</div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">The boy <span class="fill-line"></span> won the national chess championship is my cousin.</div>
+                        <div class="options-grid">
+                            <div class="option-item"><span class="option-letter">A</span> which</div>
+                            <div class="option-item"><span class="option-letter">B</span> whose</div>
+                            <div class="option-item"><span class="option-letter">C</span> where</div>
+                            <div class="option-item"><span class="option-letter">D</span> who</div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">While I was reading a book, my brother <span class="fill-line"></span> to music.</div>
+                        <div class="options-grid">
+                            <div class="option-item"><span class="option-letter">A</span> listens</div>
+                            <div class="option-item"><span class="option-letter">B</span> was listening</div>
+                            <div class="option-item"><span class="option-letter">C</span> is listening</div>
+                            <div class="option-item"><span class="option-letter">D</span> has listened</div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SECTION B -->
+        <div class="section-block">
+            <div class="section-header">
+                <span>SECTION B: Verb Tense Application</span>
+                <div class="section-meta">
+                    <span class="badge">Core · DOK 2</span>
+                    <span>[ 4 Marks ]</span>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="instructions">Complete the sentences by writing the correct form of the verb given in brackets.</div>
+                <ol class="q-list" start="6">
+                    <li class="q-item">
+                        <div class="q-text">They <span class="fill-line"></span> (play) football in the park when it suddenly began to rain.</div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">Look! The sun <span class="fill-line"></span> (rise) over the mountains right now.</div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">We <span class="fill-line"></span> (already / finish) our science project before the deadline.</div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">If you practice every day, you <span class="fill-line"></span> (improve) your English quickly.</div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SECTION C -->
+        <div class="section-block">
+            <div class="section-header">
+                <span>SECTION C: Error Identification & Correction</span>
+                <div class="section-meta">
+                    <span class="badge">Core · DOK 2</span>
+                    <span>[ 4 Marks ]</span>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="instructions">Identify the grammar error in each sentence and rewrite the sentence correctly.</div>
+                <ol class="q-list" start="10">
+                    <li class="q-item">
+                        <div class="q-text">He don't like playing basketball on Sunday mornings.</div>
+                        <div class="answer-space">
+                            <div class="line-input">Correction: </div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">This storybook is more better than the one I read last week.</div>
+                        <div class="answer-space">
+                            <div class="line-input">Correction: </div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">Where was you going yesterday at five o'clock in the afternoon?</div>
+                        <div class="answer-space">
+                            <div class="line-input">Correction: </div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">My family has lived in this neighbourhood since five years.</div>
+                        <div class="answer-space">
+                            <div class="line-input">Correction: </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SECTION D -->
+        <div class="section-block">
+            <div class="section-header">
+                <span>SECTION D: Sentence Transformation & Synthesis</span>
+                <div class="section-meta">
+                    <span class="badge">Deepening · DOK 3</span>
+                    <span>[ 4 Marks ]</span>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="instructions">Rewrite or combine the sentences as instructed in brackets without changing the original meaning.</div>
+                <ol class="q-list" start="14">
+                    <li class="q-item">
+                        <div class="q-text">She was feeling very tired. She went to sleep early. <em>(Combine using 'because')</em></div>
+                        <div class="answer-space">
+                            <div class="line-input"></div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">The teacher graded all the exam papers yesterday. <em>(Rewrite in Passive Voice)</em></div>
+                        <div class="answer-space">
+                            <div class="line-input"></div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">It was raining heavily. The students went out for outdoor training. <em>(Combine using 'although')</em></div>
+                        <div class="answer-space">
+                            <div class="line-input"></div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">"I am studying for my English exam," said Sarah. <em>(Rewrite in Reported / Indirect Speech)</em></div>
+                        <div class="answer-space">
+                            <div class="line-input">Sarah said that </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SECTION E -->
+        <div class="section-block">
+            <div class="section-header">
+                <span>SECTION E: Creative Extension & Writing</span>
+                <div class="section-meta">
+                    <span class="badge">Extension · DOK 4</span>
+                    <span>[ 3 Marks ]</span>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="instructions">Apply target grammar rules to write original sentences according to the prompts below.</div>
+                <ol class="q-list" start="18">
+                    <li class="q-item">
+                        <div class="q-text">Write ONE sentence comparing a cheetah and a horse using a <strong>comparative adjective</strong>, and ONE sentence using a <strong>superlative adjective</strong>.</div>
+                        <div class="answer-space">
+                            <div class="line-input">Comparative: </div>
+                            <div class="line-input">Superlative: </div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">Write two sentences giving advice to a friend who has an important test tomorrow: one using <strong>"should"</strong> and one using <strong>"must"</strong>.</div>
+                        <div class="answer-space">
+                            <div class="line-input">Advice (should): </div>
+                            <div class="line-input">Rule/Obligation (must): </div>
+                        </div>
+                    </li>
+                    <li class="q-item">
+                        <div class="q-text">Write a short 3-sentence paragraph describing what you were doing yesterday evening when a power outage occurred. Use both <strong>Past Continuous</strong> and <strong>Past Simple</strong> tenses.</div>
+                        <div class="answer-space">
+                            <div class="line-input"></div>
+                            <div class="line-input"></div>
+                            <div class="line-input"></div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ANSWER KEY SECTION -->
+        <div id="key">
+            <h2>🔑 Teacher's Answer Key & Scoring Guide</h2>
+            <div class="key-grid">
+                
+                <div class="key-section">
+                    <h3>Section A: Multiple Choice (5 Marks)</h3>
+                    <ol class="key-list">
+                        <li><strong>B</strong> - has been</li>
+                        <li><strong>C</strong> - highest</li>
+                        <li><strong>A</strong> - must</li>
+                        <li><strong>D</strong> - who</li>
+                        <li><strong>B</strong> - was listening</li>
+                    </ol>
+                </div>
+
+                <div class="key-section">
+                    <h3>Section B: Tense Application (4 Marks)</h3>
+                    <ol class="key-list" start="6">
+                        <li><strong>were playing</strong></li>
+                        <li><strong>is rising</strong></li>
+                        <li><strong>have already finished / had already finished</strong></li>
+                        <li><strong>will improve</strong></li>
+                    </ol>
+                </div>
+
+                <div class="key-section">
+                    <h3>Section C: Error Correction (4 Marks)</h3>
+                    <ol class="key-list" start="10">
+                        <li>He <strong>doesn't</strong> like playing basketball on Sunday mornings.</li>
+                        <li>This storybook is <strong>better</strong> than the one I read last week.</li>
+                        <li>Where <strong>were</strong> you going yesterday at five o'clock...?</li>
+                        <li>My family has lived in this neighbourhood <strong>for</strong> five years.</li>
+                    </ol>
+                </div>
+
+                <div class="key-section">
+                    <h3>Section D: Transformation (4 Marks)</h3>
+                    <ol class="key-list" start="14">
+                        <li>She went to sleep early <strong>because</strong> she was feeling very tired.</li>
+                        <li>All the exam papers <strong>were graded</strong> by the teacher yesterday.</li>
+                        <li><strong>Although</strong> it was raining heavily, the students went out for outdoor training.</li>
+                        <li>Sarah said that <strong>she was studying for her English exam.</strong></li>
+                    </ol>
+                </div>
+
+                <div class="key-section" style="grid-column: 1 / -1;">
+                    <h3>Section E: Extension (3 Marks Rubric)</h3>
+                    <ul class="key-list" style="list-style: square;">
+                        <li><strong>Q18 (1 Mark):</strong> Correct comparative (e.g., "A cheetah is faster than a horse") and superlative (e.g., "The cheetah is the fastest land animal").</li>
+                        <li><strong>Q19 (1 Mark):</strong> Appropriate use of modal 'should' for recommendation and 'must' for strong requirement.</li>
+                        <li><strong>Q20 (1 Mark):</strong> Coherent 3-sentence narrative correctly contrasting Past Continuous (background action) and Past Simple (interupting action).</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleEdit() {
+            const card = document.getElementById('worksheetCard');
+            const isEditable = card.getAttribute('contenteditable') === 'true';
+            card.setAttribute('contenteditable', !isEditable);
+            
+            const btn = event.target;
+            if (!isEditable) {
+                btn.style.backgroundColor = 'var(--accent)';
+                btn.style.color = '#fff';
+                btn.innerHTML = '✔️ Finish Editing';
+            } else {
+                btn.style.backgroundColor = '#ffffff';
+                btn.style.color = 'var(--main)';
+                btn.innerHTML = '✏️ Enable Editing';
+            }
+        }
+
+        function toggleKey() {
+            const key = document.getElementById('key');
+            if (key.style.display === 'block') {
+                key.style.display = 'none';
+            } else {
+                key.style.display = 'block';
+                key.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
